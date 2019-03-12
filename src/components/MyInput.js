@@ -1,19 +1,19 @@
 import React from 'react';
 import { TextField, FormHelperText } from '@material-ui/core';
 
-export const LciSelect = (props) => {
+export const MyInput = (props) => {
+  console.log(props.error);
   return (
     <>
       <TextField
         label={props.label}
         value={props.value}
-        onChange={props.handleChange(props.propName)}
-        error={props.hasError}
-        multiline
+        onChange={props.handleChange}
+        error={props.error ? true : false}
         margin="normal"
         variant="outlined"
       />
-      <FormHelperText>{props.errorMessage}</FormHelperText>
+      {props.error && <FormHelperText>{props.error}</FormHelperText>}
     </>
   );
 }

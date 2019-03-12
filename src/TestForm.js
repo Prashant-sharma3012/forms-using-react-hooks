@@ -1,4 +1,4 @@
-import { LciInput } from './components/LciInput';
+import { MyInput } from './components/MyInput';
 import React, { useState, useEffect } from 'react';
 import { getValidationSchema, validateForm } from './utils/rules';
 import { keys } from 'lodash';
@@ -14,15 +14,13 @@ export const TestForm = (props) => {
 
   const [errors, checkValidation] = useState(null);
 
-  const getError = (key) => {
-    return errors && errors[key] ? errors[key] : null
-  }
+  const getError = (key) => errors && errors[key] ? errors[key] : null;
 
   useEffect(() => checkValidation(validateForm(formValues, schema)), [formValues])
 
   return (
     <form>
-      <LciInput
+      <MyInput
         label="Name"
         value={formValues.name}
         handleChange={handleChange('name')}

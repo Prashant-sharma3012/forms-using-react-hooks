@@ -1,11 +1,14 @@
 {
-  "name": "lci",
+  "name": "rhook",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "joi": "^14.3.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "validator.js": "^2.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

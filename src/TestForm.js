@@ -1,8 +1,7 @@
 import { LciInput } from './components/LciInput';
 import React, { useState, useEffect } from 'react';
-import { getValidationSchema } from './utils/rules';
+import { getValidationSchema, validateForm } from './utils/rules';
 import { keys } from 'lodash';
-import Joi from 'joi';
 
 export const TestForm = (props) => {
   const handleChange = name => event => setValues({ ...formValues, [name]: event.target.value });
@@ -19,19 +18,7 @@ export const TestForm = (props) => {
     return errors && errors[key] ? errors[key] : null
   }
 
-  const buildError = (errors) => {
-    if (!errors.error) return null;
-
-    let errorObj = {};
-
-    errors.error.details.map(error => {
-      errorObj[error.context.label] = error.message
-    });
-
-    return errorObj;
-  }
-
-  useEffect(() => checkValidation(buildError(Joi.validate(formValues, schema))), [formValues])
+  useEffect(() => checkValidation(validateForm(formValues, schema)), [formValues])
 
   return (
     <form>
